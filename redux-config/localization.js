@@ -1,28 +1,26 @@
-import { clone } from 'lodash';
+import { cloneDeep } from 'lodash';
+import Cookies from 'js-cookie';
 
 import { CHANGE_LANGUAGE } from '../constants/actions';
 import isServer from '../services/serverService';
 
-let lang = !isServer() ? localStorage.getItem('lang') : undefined;
+let lang = 'en';
 
-if (!lang) {
-  // get lang from browser
-  lang = !isServer()
-    ? navigator.language || navigator.userLanguage || ''
-    : undefined;
-  if (lang && lang.toLowerCase().includes('de')) {
-    lang = 'de';
-  } else {
-    lang = 'en';
-  }
-  !isServer() ? localStorage.setItem('lang', lang) : undefined;
+if (!isServer()) {
+  lang = Cookies.get('lang') ? Cookies.get('lang') : lang;
 }
+
 const defState = { lang };
 
-export default function localization(state = clone(defState), action) {
+export default function localization(state = cloneDeep(defState), action) {
   if (action.type === CHANGE_LANGUAGE) {
-    !isServer() ? localStorage.setItem('lang', lang) : undefined;
+    if (!isServer()) {
+      Cookies.set('lang', action.lang);
+    }
     return { lang: action.lang };
   }
-  return state;
+  if (isServer()) {
+    return state;
+  }
+  return defState;
 }
