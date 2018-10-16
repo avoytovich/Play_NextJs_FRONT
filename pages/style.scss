@@ -1,9 +1,12 @@
-.test-style {
-  background-color: red;
+.landing-wrapper {
+  height: 100vh;
+  background-color:  grey;
+  background-repeat: no-repeat, no-repeat;
+  background-size: cover;
 }
 
-.test {
-  width: 100%;
-  max-width: 360px;
-  background-color: blue;
+@media (max-width: 480px) {
+  .landing-wrapper {
+    background-color:  grey;
+  }
 }
