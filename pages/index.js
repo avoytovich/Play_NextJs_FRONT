@@ -1,7 +1,8 @@
 import React from 'react';
 import NoSSR from 'react-no-ssr';
 
-import Header from '../components/header/header';
+import Layout from '../components/MyLayout';
+import Location from '../components/location/location';
 
 import withModal from '../services/decorators/withModal/index';
 
@@ -14,8 +15,10 @@ export default class App extends React.Component {
       <div>
         <NoSSR>
           <div className="landing-wrapper">
-            <Header />
-            <h1 onClick={this.props.open}>Test</h1>
+            <Layout>
+              <h1 onClick={this.props.open}>Test</h1>
+              <Location />
+            </Layout>
           </div>
         </NoSSR>
       </div>

@@ -9,31 +9,37 @@ class MyDocument extends Document {
 
     return (
       <html lang="en" dir="ltr">
-      <Head>
-        <meta charSet="utf-8" />
-        {/* Use minimum-scale=1 to enable GPU rasterization */}
-        <meta
-          name="viewport"
-          content={
-            'user-scalable=0, initial-scale=1, ' +
-            'minimum-scale=1, width=device-width, height=device-height'
-          }
-        />
-        {/* PWA primary color */}
-        <meta
-          name="theme-color"
-          content={pageContext.theme.palette.primary.main}
-        />
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Roboto:300,400,500"
-        />
-        <link rel="stylesheet" href="/_next/static/style.css" />
-      </Head>
-      <body>
-      <Main />
-      <NextScript />
-      </body>
+        <Head>
+          <meta charSet="utf-8" />
+          {/* Use minimum-scale=1 to enable GPU rasterization */}
+          <meta
+            name="viewport"
+            content={
+              'user-scalable=0, initial-scale=1, ' +
+              'minimum-scale=1, width=device-width, height=device-height'
+            }
+          />
+          {/* PWA primary color */}
+          <meta
+            name="theme-color"
+            content={pageContext.theme.palette.primary.main}
+          />
+          <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Roboto:300,400,500"
+          />
+          <link rel="stylesheet" href="/_next/static/style.css" />
+          <link
+            rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+            crossOrigin="anonymous"
+          />
+        </Head>
+        <body>
+          <Main />
+          <NextScript />
+        </body>
       </html>
     );
   }
